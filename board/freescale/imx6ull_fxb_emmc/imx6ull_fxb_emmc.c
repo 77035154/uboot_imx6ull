@@ -808,7 +808,7 @@ int checkboard(void)
 	if (is_mx6ull_9x9_evk())
 		puts("Board: MX6ULL 9x9 EVK\n");
 	else
-		puts("Board: MX6ULL 14x14 EVK\n");
+		puts("Board: imx6ull fxb by MX6ULL 14x14 EVK\n");
 
 	return 0;
 }

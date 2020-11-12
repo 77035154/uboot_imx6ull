@@ -117,6 +117,8 @@ u32 get_cpu_rev(void)
  */
 #define OCOTP_CFG3_SPEED_528MHZ 1
 #define OCOTP_CFG3_SPEED_696MHZ 2
+#define OCOTP_CFG3_SPEED_792MHZ 2
+
 
 u32 get_cpu_speed_grade_hz(void)
 {
@@ -133,8 +135,10 @@ u32 get_cpu_speed_grade_hz(void)
 	if (is_cpu_type(MXC_CPU_MX6UL) || is_cpu_type(MXC_CPU_MX6ULL)) {
 		if (val == OCOTP_CFG3_SPEED_528MHZ)
 			return 528000000;
-		else if (val == OCOTP_CFG3_SPEED_696MHZ)
-			return 69600000;
+		//else if (val == OCOTP_CFG3_SPEED_696MHZ)
+			//return 69600000;
+		else if(val == OCOTP_CFG3_SPEED_792MHZ)
+			return 792000000;
 		else
 			return 0;
 	}
