@@ -826,7 +826,30 @@ __weak int arch_cpu_init_dm(void)
 	return 0;
 }
 
+int show_led_ds0_GPIO1_IO03(void)
+{
+
+	volatile unsigned int * ccm_ccgr1  = ((volatile unsigned int *)0X020C406C);
+	volatile unsigned int * sw_mux_gpio1_io03  	= ((volatile unsigned int *)0X020E0068) ;
+	volatile unsigned int * sw_pad_gpio1_io03 		=((volatile unsigned int *)0X020E02F4) ;
+	volatile unsigned int * gpio1_dr =((volatile unsigned int *)0X0209C000) ;
+	volatile unsigned int * gpio1_gdir=((volatile unsigned int *)0X0209C004) ;
+
+	//enable clock
+	*ccm_ccgr1 = 0xffffffff;
+	//set gpio mode
+	*sw_mux_gpio1_io03 = 0x5;
+	//io arg
+	*sw_pad_gpio1_io03 = 0x10b0;
+	//set output mode
+	*gpio1_gdir = 0x0000008;
+	//output 0
+	*gpio1_dr &= ~(1 << 3) ;
+	return 0;
+}
+
 static init_fnc_t init_sequence_f[] = {
+	show_led_ds0_GPIO1_IO03,
 #ifdef CONFIG_SANDBOX
 	setup_ram_buf,
 #endif
