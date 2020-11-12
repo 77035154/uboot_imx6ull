@@ -1,0 +1,17 @@
+if TARGET_IMX6ULL_FXB_EMMC
+
+config SYS_BOARD
+	default "imx6ull_fxb_emmc"
+
+
+config SYS_VENDOR
+	default "freescale"
+
+config SYS_SOC
+        default "imx6"
+
+
+config SYS_CONFIG_NAME
+	default "imx6ull_fxb_emmc"
+
+endif
