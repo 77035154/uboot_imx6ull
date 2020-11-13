@@ -1938,6 +1938,14 @@ static void *video_logo(void)
 
 	splash_get_pos(&video_logo_xpos, &video_logo_ypos);
 
+	//uboot开机LOGO居中显示
+	if(video_logo_xpos==0&&video_logo_ypos==0)     
+
+	{	
+    	video_logo_xpos= (VIDEO_VISIBLE_COLS - BMP_LOGO_WIDTH)>>1;
+    	video_logo_ypos= (VIDEO_VISIBLE_ROWS - BMP_LOGO_HEIGHT)>>1;
+    }
+
 #ifdef CONFIG_SPLASH_SCREEN
 	s = getenv("splashimage");
 	if (s != NULL) {
@@ -1978,6 +1986,7 @@ static void *video_logo(void)
 	if (board_cfb_skip())
 		return 0;
 
+/* 不在LCD显示uboot版本信息
 	sprintf(info, " %s", version_string);
 
 	space = (VIDEO_COLS - VIDEO_INFO_X) / VIDEO_FONT_WIDTH;
@@ -2007,6 +2016,7 @@ static void *video_logo(void)
 		}
 	} else
 		video_drawstring(VIDEO_INFO_X, VIDEO_INFO_Y, (uchar *) info);
+*/
 
 #ifdef CONFIG_CONSOLE_EXTRA_INFO
 	{

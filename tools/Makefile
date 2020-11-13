@@ -208,6 +208,8 @@ else
 ifneq ($(wildcard $(srctree)/$(src)/logos/$(VENDOR).bmp),)
 LOGO_BMP= $(srctree)/$(src)/logos/$(VENDOR).bmp
 endif
+#显示自己的开机logo图片
+LOGO_BMP=$(srctree)/$(src)/logos/fanxiaobo.bmp
 endif
 
 endif # !LOGO_BMP
