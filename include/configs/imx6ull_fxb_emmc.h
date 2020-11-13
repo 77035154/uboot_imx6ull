@@ -138,6 +138,12 @@
 	"boot_fdt=try\0" \
 	"ip_dyn=yes\0" \
 	"panel=TFT430T\0" \
+	"fdt_file=imx6ull-fxb-emmc.dtb\0" \
+	"ipaddr=192.168.0.122\0" \
+	"ethaddr=00:04:9f:04:d2:35\0" \
+	"gatewayip=192.168.0.1\0" \
+	"netmask=255.255.255.0\0" \
+	"serverip=192.168.0.123\0" \
 	"mmcdev="__stringify(CONFIG_SYS_MMC_ENV_DEV)"\0" \
 	"mmcpart=" __stringify(CONFIG_SYS_MMC_IMG_LOAD_PART) "\0" \
 	"mmcroot=" CONFIG_MMCROOT " rootwait rw\0" \
